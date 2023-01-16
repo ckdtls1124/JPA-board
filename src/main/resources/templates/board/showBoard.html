@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Board Main</title>
+</head>
+<body>
+    <h3>Write something on Board!</h3>
+    <form th:action="@{/board/write}" method="POST" >
+      제목:   <label for="title" /><input id="title" type="text" name="title"> <br>
+      내용:   <label for="content" /><input id="content" type="text" name="content"> <br>
+      작성자:   <label for="writer" /><input id="writer" type="text" name="writer"> <br>
+      비밀번호  <label for="password" /><input id="password" type="text" name="password"> <br>
+        <input type="submit" value="제출">
+    </form>
+</body>
+</html>
