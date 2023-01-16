@@ -21,42 +21,35 @@ public class BoardResponseDTO {
     private String title;
     private String content;
     private String writer;
-
-    //    set the default
-    private int views=0;
-
+    private int views;
     private String boardPw;
     private LocalDateTime createTime;
     private LocalDateTime updateTime;
 
-    //    ========DTO -> Entity ==================
-    public static BoardEntity insertNewContent(BoardRequestDTO dto){
-        BoardEntity entity=new BoardEntity();
-
-
-
-
-
-
-//        entity.=dto.getTitle();
-//        entity.content=dto.getContent();
-//        entity.writer=dto.getWriter();
-//        entity.boardPw=dto.getBoardPw();
-//
-//        entity.views=dto.getViews();
-//        entity.createTime=dto.getCreateTime();
-//        entity.updateTime=dto.getUpdateTime();
-
-        return entity;
+    //    ========Entity -> DTO ==================
+    public static BoardResponseDTO toResponseDTO(BoardEntity entity){
+        BoardResponseDTO dto=new BoardResponseDTO();
+        dto.setNumber(entity.getNumber());
+        dto.setTitle(entity.getTitle());
+        dto.setContent(entity.getContent());
+        dto.setWriter(entity.getWriter());
+        dto.setBoardPw(entity.getBoardPw());
+        dto.setViews(entity.getViews());
+        dto.setCreateTime(entity.getCreateTime());
+        dto.setUpdateTime(entity.getUpdateTime());
+        return dto;
     }
     //    Using Builder
-    public static BoardEntity toEntity(BoardRequestDTO dto){
-        return BoardEntity.builder()
-                .title(dto.getTitle())
-                .content(dto.getContent())
-                .writer(dto.getWriter())
-                .boardPw(dto.getBoardPw())
-                .views(dto.getViews())
+    public static BoardResponseDTO toResponseDTOByBuilder(BoardEntity entity){
+        return BoardResponseDTO.builder()
+                .title(entity.getTitle())
+                .content(entity.getContent())
+                .writer(entity.getWriter())
+                .boardPw(entity.getBoardPw())
+                .views(entity.getViews())
+                .number(entity.getNumber())
+                .createTime(entity.getCreateTime())
+                .updateTime(entity.getUpdateTime())
                 .build();
     }
 

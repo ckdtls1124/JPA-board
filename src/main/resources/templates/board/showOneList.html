@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Lists</title>
+</head>
+<body>
+<table border="1">
+  <tr>
+    <th>순서</th>
+    <th>제목</th>
+    <th>내용</th>
+    <th>작성자</th>
+    <th>비밀번호</th>
+    <th>조회수</th>
+    <th>작성시간</th>
+    <th>수정시간</th>
+    <th>전체 리스트</th>
+    <th>메인페이지</th>
+  </tr>
+  <tr th:each="one: ${one}">
+    <td th:text="${one.number}">1</td>
+    <td th:text="${one.title}">1</td>
+    <td th:text="${one.content}">1</td>
+    <td th:text="${one.writer}">1</td>
+    <td th:text="${one.boardPw}">1</td>
+    <td th:text="${one.views}">1</td>
+    <td th:text="${one.createTime}">1</td>
+    <td th:text="${one.updateTime}">1</td>
+    <td><a th:href="@{/board/lists}">전체 리스트</a></td>
+    <td><a th:href="@{/main}">메인페이지</a></td>
+  </tr>
+</table>
+</body>
+</html>

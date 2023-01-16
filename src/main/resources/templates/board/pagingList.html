@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Paging Lists</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td>
+            <a th:href="${boardList.first} ? '#' : @{/board/pagingList(page=${boardList.number-1})}">이전</a>
+            <th:block th:each="page : ${#numbers.sequence(startPage, endPage)}" >
+                <span th:if="${page == nowPage}" th:text="${page}" th:classappend="class1"></span>
+                <span th:unless="${page == nowPage}">
+                    <a th:href="@{/board/pagingList(page=${page-1})}" th:text="${page}"></a>
+                </span>
+            </th:block>
+            <a th:href="${boardList.last} ? '#' : @{/board/pagingList(page=${boardList.number+1})}">다음</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
